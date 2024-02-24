@@ -19,14 +19,21 @@
             <RowDefinition Height="94*"/>
             <RowDefinition Height="133*"/>
         </Grid.RowDefinitions>
+       
+        
+        
+        <!-- _________________Код на обоащения к каждому элементу_______________ -->
         <TextBlock Text="Name" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"></TextBlock>
         <TextBlock Text="Stars" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"></TextBlock>
         <TextBlock Text="Country" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"></TextBlock>
         <TextBox Text="{Binding HotelName}" Grid.Column="1" Height="30"></TextBox>
         <TextBox Text="{Binding CountOfStars}" Grid.Column="1" Grid.Row="1" Height="30"></TextBox>
         <ComboBox SelectedItem="{Binding Country}" Grid.Column="1" Grid.Row="2" Height="30" x:Name="ComboCountries" DisplayMemberPath="CountryName"></ComboBox>
+        <!-- _________________Код на обоащения к каждому элементу_______________ -->
 
-        <Button Content="Save" FontSize="20" Grid.ColumnSpan="2" Width="100" Height="50" Grid.Row="4" Name="BthSave" Click="BthSave_Click"></Button>
+
+
+                <Button Content="Save" FontSize="20" Grid.ColumnSpan="2" Width="100" Height="50" Grid.Row="4" Name="BthSave" Click="BthSave_Click"></Button>
 
     </Grid>
 </Page>
