@@ -23,7 +23,7 @@
         
         
         <!-- Для отображения страницы -->
-        <Frame Grid.Row="1" Name="MainFrame"></Frame>
+        <Frame  NavigationUIVisibility="Hidden" Grid.Row="1" Name="MainFrame"></Frame>
         <!-- Для отображения страницы -->
 
 
