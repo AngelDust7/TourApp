@@ -45,17 +45,35 @@ namespace ToursApp
         }
 
         private void BthDel_Click(object sender, RoutedEventArgs e)
-        {
-            var hotelsForDel = DGridHotels.SelectedItems.Cast<Hotel>().ToList();
+ {
 
-            ToursBaseEntities.GetContext().Hotel.RemoveRange(hotelsForDel);
-            ToursBaseEntities.GetContext().SaveChanges();
-            MessageBox.Show("Deleted");
 
-            DGridHotels.ItemsSource = ToursBaseEntities.GetContext().Hotel.ToList();
+     var hotelsForDel = DGridHotels.SelectedItems.Cast<Hotel>().ToList();
 
-        }
+     if (DGridHotels.SelectedItems.Count == 0)
+     {
+         MessageBox.Show("Не выбрана ни одна строка!", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Warning);
+         return;
+     }
 
+     if (MessageBox.Show($"Вы точно хотите удалить следующие {hotelsForDel.Count()} элементов?", "Внимание!",
+      MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+     {
+         try
+         {
+             ToursBaseEntities.GetContext().Hotel.RemoveRange(hotelsForDel);
+             ToursBaseEntities.GetContext().SaveChanges();
+             MessageBox.Show("Deleted");
+
+             DGridHotels.ItemsSource = ToursBaseEntities.GetContext().Hotel.ToList();
+         }
+         catch (Exception ex)
+         {
+             MessageBox.Show(ex.Message.ToString());
+         }
+     }
+
+ }
         //---------------------------Кнопки действий для отображения "Page-Создать Класс Manager для отображения" (Добавление Удаление и Редактирование)---------------------------------------------
 
 
